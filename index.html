@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelist Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #007BFF, #00FF88, #ff9500, #FFBB00, #FF00FF, #6A00FF);
+            background-size: 600% 600%;
+            animation: gradientBG 15s ease infinite;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        #container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        #buttons {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        #button-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        #overlay {
+            /* Overlay style */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Intelist</h1>
+        <p>Welcome to Intelist,This application is designed to facilitate teacher and substitute login.</p>
+        <div id="buttons">
+            <button class="btn" onclick="redirectTo('Teacher Dashboard/index.html')">Login as Teacher</button>
+            <button class="btn" onclick="redirectTo('Substitute Dashboard/index.html')">Login as Substitute</button>
+        </div>
+        <div id="button-container">
+            <button class="btn" onclick="redirectTo('Teacher Dashboard/index.html')">Login as Teacher</button>
+            <button class="btn" onclick="redirectTo('Substitute Dashboard/index.html')">Login as Substitute</button>
+        </div>
+    </div>
+
+    <!-- Loading overlay -->
+    <div id="overlay" style="display: none;">
+        <div>Loading...</div>
+    </div>
+    <script>
+        function redirectTo(url) {
+            // Display loading overlay
+            document.getElementById('overlay').style.display = 'flex';
+
+            // Simulate a random delay (e.g., between 1 to 3 seconds)
+            const randomDelay = Math.floor(Math.random() * (3000 - 1000 + 1)) + -1000;
+
+            // Redirect after the delay
+            setTimeout(() => {
+                window.location.href = url;
+            }, randomDelay);
+        }
+    </script>
+</body>
+</html>
